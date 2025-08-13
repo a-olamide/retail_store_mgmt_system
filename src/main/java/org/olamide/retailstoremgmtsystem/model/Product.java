@@ -43,4 +43,13 @@ public class Product {
     )
     @ToString.Exclude
     private Set<Category> productCategories = new HashSet<>();
+
+    public Product(String sku, String productName, LocalDate dateAcquired, Double unitPrice,
+                   Integer quantityInStock) {
+        this.sku = sku;
+        this.productName = productName;
+        this.dateAcquired = dateAcquired;
+        this.unitPrice = unitPrice;
+        this.quantityInStock = quantityInStock;
+    }
 }

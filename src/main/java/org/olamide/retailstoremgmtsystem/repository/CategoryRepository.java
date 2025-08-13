@@ -13,4 +13,5 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
             Select c from Category c LEFT JOIN FETCH c.products order by c.name
             """)
     List<Category> getAllCategoriesAndProducts();
+    Category findByName(String name);
 }

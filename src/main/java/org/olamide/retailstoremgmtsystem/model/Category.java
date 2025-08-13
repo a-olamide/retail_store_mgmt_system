@@ -24,4 +24,8 @@ public class Category {
     @ManyToMany(mappedBy = "productCategories")
     @ToString.Exclude
     private Set<Product> products = new HashSet<>();
+
+    public Category(String name) {
+        this.name = name;
+    }
 }
