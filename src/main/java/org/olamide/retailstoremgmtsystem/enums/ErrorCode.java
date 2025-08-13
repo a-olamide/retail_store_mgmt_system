@@ -1,0 +1,14 @@
+package org.olamide.retailstoremgmtsystem.enums;
+
+public enum ErrorCode {
+    VALIDATION_FAILED,
+    MALFORMED_JSON,
+    MISSING_PARAMETER,
+    TYPE_MISMATCH,
+    CATEGORY_NOT_FOUND,
+    PRODUCT_NOT_FOUND,
+    RESOURCE_NOT_FOUND,
+    DATA_INTEGRITY_VIOLATION,
+
+    UNEXPECTED_ERROR
+}

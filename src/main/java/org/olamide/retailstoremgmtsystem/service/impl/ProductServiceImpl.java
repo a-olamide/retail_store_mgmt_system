@@ -7,6 +7,8 @@ import org.olamide.retailstoremgmtsystem.dto.category.CategoryResponseDto;
 import org.olamide.retailstoremgmtsystem.dto.product.ProductRequestDto;
 import org.olamide.retailstoremgmtsystem.dto.product.ProductResponseDto;
 import org.olamide.retailstoremgmtsystem.dto.product.ProductWithCategoriesResponseDto;
+import org.olamide.retailstoremgmtsystem.exception.CategoryNotFoundException;
+import org.olamide.retailstoremgmtsystem.exception.ProductNotFoundException;
 import org.olamide.retailstoremgmtsystem.model.Category;
 import org.olamide.retailstoremgmtsystem.model.Product;
 import org.olamide.retailstoremgmtsystem.repository.CategoryRepository;
@@ -59,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductWithCategoriesResponseDto getProduct(Long productId) {
-        productRepository.findById(productId).orElseThrow(() -> new IllegalArgumentException("Product not found"));
+        productRepository.findById(productId).orElseThrow(() -> new ProductNotFoundException("Product not found"));
         return null;
     }
 
@@ -72,7 +74,7 @@ public class ProductServiceImpl implements ProductService {
                 dto.unitPrice(),
                 dto.quantityInStock());
         if(dto.categoryId() != null) {
-            var category = categoryRepository.findById(dto.categoryId()).orElseThrow(() -> new EntityNotFoundException("Category not found"));
+            var category = categoryRepository.findById(dto.categoryId()).orElseThrow(() -> new CategoryNotFoundException("Category not found"));
             var categorySet = new HashSet<Category>();
             categorySet.add(category);
             product.setProductCategories(categorySet);

@@ -26,13 +26,10 @@ public class Product {
     @NotBlank(message = "Product name cannot be empty")
     private String productName;
     @Column(nullable = false)
-    @NotBlank(message = "Date acquired cannot be empty")
     private LocalDate dateAcquired;
     @Column(nullable = false)
-    @NotBlank(message = "Unit price cannot be empty")
     private Double unitPrice;
     @Column(nullable = false)
-    @NotBlank(message = "Quantity in stock cannot be empty")
     private Integer quantityInStock;
     @ManyToMany
     @JoinTable(
