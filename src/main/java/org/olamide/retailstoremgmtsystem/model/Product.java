@@ -37,7 +37,7 @@ public class Product {
     @ManyToMany
     @JoinTable(
             name="product_categories",
-            joinColumns = {@JoinColumn(name="product_id", referencedColumnName = "productd")},
+            joinColumns = {@JoinColumn(name="product_id", referencedColumnName = "productId")},
             inverseJoinColumns = {@JoinColumn(name="category_id", referencedColumnName = "categoryId")},
             uniqueConstraints ={@UniqueConstraint(columnNames = {"product_id","category_id"})}
     )

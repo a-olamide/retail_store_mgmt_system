@@ -21,7 +21,7 @@ public class Category {
     @Column(nullable = false)
     @NotBlank(message = "Category name cannot be empty")
     private String name;
-    @ManyToMany(mappedBy = "product_categories")
+    @ManyToMany(mappedBy = "productCategories")
     @ToString.Exclude
     private Set<Product> products = new HashSet<>();
 }
